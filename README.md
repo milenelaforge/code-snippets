@@ -1,5 +1,5 @@
 # code-snippets
-Code snippets in html, css and js for webdesign
+Code snippets in html, css and js for webdesign  
 red  
 lightgreen  
 lightyellow  
