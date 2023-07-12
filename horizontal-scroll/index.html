@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Horizontal scroll</title>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js'></script>
+
+<style type="text/css">
+
+* {
+  padding:0;
+  margin:0;
+}
+
+body, html {
+  height:100vh;
+  max-height:100vh;
+}
+
+body {
+  background-color:lightyellow;
+  overflow-y:hidden;
+}
+
+::-webkit-scrollbar {
+  height: 10px;
+  background-color: rosybrown;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 10px;
+  background-color: red;
+  border-radius: 0px;
+}
+
+.container {
+  display: flex;
+  position:relative;
+  top:5vh;
+}
+
+.element {
+  height:90vh;
+  min-width:50vw;
+  background-color: lightskyblue;
+  margin-right:2vw;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="element">1</div>
+    <div class="element">2</div>
+    <div class="element">3</div>
+</div>
+
+</body>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+  $('html, body, *').mousewheel(function(e, delta) {
+    this.scrollLeft -= delta;
+    e.preventDefault();
+  });
+});
+
+</script>
+
+</html>
