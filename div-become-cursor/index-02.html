@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Div Text become cursor</title>
+
+<style type="text/css">
+
+* {
+  padding:0;
+  margin:0;
+}
+
+body {
+  margin:0;
+  padding:0;
+  overflow:hidden;
+}
+
+#cursor {
+  font-family: sans-serif;
+  position:absolute;
+  transform:translate(-50%,-50%);
+  cursor:none;
+  color:rosybrown;
+  font-size:100px;
+}
+
+</style>
+</head>
+
+<body>
+    
+  <div id="cursor">Welcome</div>
+
+</body>
+
+<script type="text/javascript">
+let cursor = document.getElementById('cursor');
+const onMouseMove = (e) => {
+  cursor.style.left = e.pageX + 'px';
+  cursor.style.top = e.pageY + 'px';
+}
+
+document.addEventListener('mousemove', onMouseMove);
+</script>
+</html>
