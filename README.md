@@ -9,13 +9,12 @@ html, css and js files are compiled in a single file to simplify re-appropriatio
 
 # Inside directories
 
-1. index.html
-    1. html 
-    2. script (javascript)
-    3. style (css)
-2. Demos screenshots
-3. Readme.md
-
+- index.html
+    - html language
+    - javascript language
+    - css language
+- Demos screenshots
+- README.md
 
 # License
 
