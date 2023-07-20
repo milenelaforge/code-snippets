@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Text Color changes on scroll</title>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+<style type="text/css">
+
+* {
+  padding:0;
+  margin:0;
+}
+
+body {
+  margin:0;
+  padding:0;
+  font-family:sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: lightgreen;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: lightskyblue;
+  border-radius: 0px;
+}
+
+.container {
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+h1 {
+  top: 10vh;
+  width:100vw;
+  font-weight: normal;
+  text-align:center;
+}
+
+.container-1 {
+  background-color: lightyellow;
+}
+
+.container-2 {
+  background-color: pink;
+}
+
+.text-1 {
+  position: fixed;
+  color: pink;
+}
+
+.text-2 {
+  position: absolute;
+  color: red;
+}
+
+
+
+</style>
+</head>
+
+<body>
+    
+<div class="container container-1">
+  <h1 class="text-1">Changing color text</h1> 
+</div>
+
+<div class="container container-2">
+  <h1 class="text-2">Changing color text</h1> 
+</div>
+
+</body>
+
+<script type="text/javascript">
+function colorSwitch () {
+  $('.text-2').each(function() {
+    $(this).css('top',
+      $('.text-1').offset().top -  $(this).closest('.container').offset().top
+    );
+  });
+};
+
+$(document).scroll(function() {colorSwitch();});
+
+colorSwitch();
+</script>
+</html>
