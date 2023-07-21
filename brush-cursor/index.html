@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Brush cursor</title>
+
+<style type="text/css">
+
+* {
+  padding:0;
+  margin:0;
+}
+
+body {
+  margin:0;
+  padding:0;
+}
+
+#draw {
+  position: absolute;
+  top: 0;
+  left: 0;
+  mix-blend-mode: normal;
+  opacity:1;
+  filter:blur(10px);
+}
+
+#canvas {
+  width:100vw;
+  height:100vh;
+}
+
+</style>
+</head>
+
+<body>
+    
+  <div id="draw">
+    <canvas id="canvas"></canvas>
+  </div>
+
+</body>
+
+<script type="text/javascript">
+function $(el) {
+  return document.getElementById(el.replace(/#/,''));
+}
+
+var canvas = $('#canvas');
+canvas.width = document.documentElement.clientWidth;
+canvas.height = document.documentElement.scrollHeight;
+var context = canvas.getContext('2d');
+
+var start = function(coors) {
+  context.beginPath();
+  this.isDrawing = true;
+};
+
+var move = function(coors) {
+  if (this.isDrawing) {
+    context.strokeStyle = "lightgreen";
+    context.lineJoin = "round";
+    context.lineCap = "round";
+    context.lineWidth = 50;
+    context.lineTo(coors.x, coors.y);
+    context.stroke();
+  }
+};
+
+var drawer = {
+  isDrawing: true,
+  mousedown: start,
+  mousemove: move,
+  mouseup: stop,
+  touchstart: start,
+  touchmove: move,
+  touchend: stop
+};
+
+window.onmousemove = logMouseMove;
+
+function logMouseMove(e) {
+  e = event || window.event;  
+  mousePos = { x: e.pageX, y: e.pageY };
+  drawer[e.type](mousePos);
+}
+
+document.documentElement.addEventListener('touchmove', function(e) {
+  e.preventDefault();
+}, true);
+
+window.onresize = function(e) {
+  canvas.width = document.documentElement.clientWidth;
+};
+
+</script>
+</html>
