@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Random position on reload</title>
+
+<style type="text/css">
+
+* {
+  padding:0;
+  margin:0;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: lightyellow;
+}
+
+#image-container {
+  position: relative;
+  width: 90vw; 
+  height: 90vh; 
+}
+
+#random-image {
+  position: absolute;
+  height:200px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="image-container">
+    <img src="image.jpg" id="random-image">
+</div>
+
+</body>
+
+<script type="text/javascript">
+function updateImagePosition() {
+  const imageElement = document.getElementById("random-image");
+
+  const viewportWidth = window.innerWidth;
+  const viewportHeight = window.innerHeight;
+
+  const imageWidth = imageElement.width;
+  const imageHeight = imageElement.height;
+
+  const randomX = Math.floor(Math.random() * (viewportWidth - imageWidth));
+  const randomY = Math.floor(Math.random() * (viewportHeight - imageHeight));
+
+  const posXPercentage = (randomX / viewportWidth) * 100;
+  const posYPercentage = (randomY / viewportHeight) * 100;
+
+  imageElement.style.left = posXPercentage + "%";
+  imageElement.style.top = posYPercentage + "%";
+}
+
+window.addEventListener("DOMContentLoaded", function() {
+  const imageElement = document.getElementById("random-image");
+  imageElement.addEventListener("load", updateImagePosition);
+  
+  updateImagePosition();
+});
+
+window.addEventListener("resize", updateImagePosition);
+
+</script>
+</html>
