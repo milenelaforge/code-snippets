@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Hovered image become text</title>
+
+<style type="text/css">
+
+body {
+   margin:10px;
+   display: flex;
+   font-family: sans-serif;
+}
+
+.element {
+   height: 300px;
+   width: 300px;
+   margin-right: 20px;
+   margin-top: 0px;
+}
+
+.element img {
+   display: block;
+   height: 300px;
+   width: 300px;
+   border:1px solid lightskyblue;
+}
+
+.element span {
+   display: none;
+   height: calc(300px - 2vh);
+   width: calc(300px - 2vh);    
+   padding:1vh;
+   position: relative;
+   top: 0;
+   left: 0;
+   border:1px solid red;
+   color:red;
+}
+
+.element:hover img {
+   display: none;
+}
+
+.element:hover span {
+   display: block;
+}
+
+</style>
+</head>
+
+<body>
+
+    <div class="element"> 
+        <img src="image.jpg"> 
+        <span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span> 
+    </div>
+
+    <div class="element"> 
+        <img src="image.jpg"> 
+        <span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span> 
+    </div>
+
+    <div class="element"> 
+        <img src="image.jpg"> 
+        <span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span> 
+    </div>
+
+</body>
+</html>
+
+
+
