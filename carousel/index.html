@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Carousel</title>
+
+<style type="text/css">
+
+body {
+   background-color: lightgreen;
+}
+
+*::-webkit-scrollbar {
+   display:none;
+}
+
+ol, li {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+
+section {
+   position: relative;
+   height: 75vh;
+}
+
+.carousel__viewport {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+
+.carousel__slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  background-color: lightyellow;
+}
+
+.carousel__slide:nth-child(even) {
+  background-color: lightskyblue;
+}
+
+.carousel__prev, .carousel__next {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+}
+
+.carousel__prev {
+  left: 0px;
+  cursor: w-resize;
+}
+
+.carousel__next {
+  right: 0px;
+  cursor: e-resize;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<section>
+
+  <ol class="carousel__viewport">
+    <li id="carousel_1" class="carousel__slide">
+        <a href="#carousel_4" class="carousel__prev"></a>
+        <a href="#carousel_2" class="carousel__next"></a>
+    </li>
+
+    <li id="carousel_2" class="carousel__slide">
+        <a href="#carousel_1"class="carousel__prev"></a>
+        <a href="#carousel_3"class="carousel__next"></a>
+    </li>
+
+    <li id="carousel_3" class="carousel__slide">
+        <a href="#carousel_2" class="carousel__prev"></a>
+        <a href="#carousel_4" class="carousel__next"></a>
+    </li>
+
+    <li id="carousel_4" class="carousel__slide">
+        <a href="#carousel_3" class="carousel__prev"></a>
+        <a href="#carousel_1" class="carousel__next"></a>
+    </li>
+  </ol>
+
+</section>
+
+</body>
+</html>
