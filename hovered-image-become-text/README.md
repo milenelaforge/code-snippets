@@ -1,4 +1,4 @@
-# Horizontal scroll
+# Hovered image become text
 
 This snippet is a method of hiding an image and making text appear when you hover it. 
 
