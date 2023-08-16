@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Hover action on other element</title>
+
+<style type="text/css">
+
+body {
+  background-color:lavender;
+}
+.container {
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.site-block {
+  background-color: pink;
+  width: 100%;
+  margin-top:2vh;
+  height:10vh;
+  transition: 0.5s;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="site-block"></div>
+  <div class="site-block"></div>
+  <div class="site-block"></div>
+  <div class="site-block"></div>
+</div>
+
+</body>
+
+
+</html>
+
+
+<script>
+const siteBox = document.querySelectorAll('.site-block');
+
+siteBox.forEach(function(element){
+  element.addEventListener('mouseenter', function(event) {
+
+    siteBox.forEach((box) => {
+      if(event.target !== box) {
+        box.style.opacity = '0.5';
+      }
+    });
+    event.target.opacity = 1;
+  });
+  
+  element.addEventListener('mouseleave', function(event) {
+    siteBox.forEach((otherBox) => {
+      otherBox.style.opacity = '1';
+    });
+  });
+});
+</script>
