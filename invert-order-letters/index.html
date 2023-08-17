@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Invert order letters</title>
+
+<style type="text/css">
+
+body {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-size:5vh;
+  color:lightskyblue;
+  background-color: whitesmoke;
+}
+
+button {
+  padding: 2vh;
+  background-color: red;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size:3vh;
+}
+
+</style>
+</head>
+
+<body>
+
+  <p id="text">Hello</p>
+  <button id="reverseButton">Inverser</button>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const textElement = document.getElementById("text");
+    const reverseButton = document.getElementById("reverseButton");
+
+    reverseButton.addEventListener("click", function() {
+      const originalText = textElement.textContent;
+      const reversedText = reverseString(originalText);
+      textElement.textContent = reversedText;
+    });
+
+    function reverseString(str) {
+      return str.split("").reverse().join("");
+    }
+  });
+</script>
+
+</body>
+</html>
