@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Lazy Load</title>
+
+<style type="text/css">
+
+* {
+  padding:0;
+  margin:0;
+}
+
+body {
+  background-color: whitesmoke;
+}
+
+.containerImage {
+  position:absolute;
+  align-items: center;
+  display:flex;
+  flex-direction:column;
+  width:100vw;
+}
+
+.containerImage img {
+  width:30vw;
+}
+
+.fade-in {
+  opacity: 0;
+  filter: brightness(2);
+}
+
+.fade-in-active {
+  opacity: 1;
+  filter: brightness(1);
+  transition: opacity 1s ease, filter 1s ease;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div class="containerImage">
+    <img class="fade-in" src="image_01.jpg" />
+    <img class="fade-in" src="image_02.jpg" />
+    <img class="fade-in" src="image_03.jpg" />
+    <img class="fade-in" src="image_01.jpg" />
+    <img class="fade-in" src="image_02.jpg" />
+    <img class="fade-in" src="image_03.jpg" />
+</div>
+
+</body>
+
+<script type="text/javascript">
+
+function observeFadeIn() {
+  const images = document.querySelectorAll('.fade-in');
+
+  const options = {
+    root: null,
+    threshold: 0.2,
+  };
+
+  const observer = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+      const img = entry.target;
+      if (entry.isIntersecting) {
+        if (img.complete) {
+          img.classList.add('fade-in-active');
+          observer.unobserve(img);
+        } else {
+          img.addEventListener('load', () => {
+            img.classList.add('fade-in-active');
+            observer.unobserve(img);
+          });
+        }
+      }
+    });
+  }, options);
+
+  function startObserving() {
+    images.forEach(img => observer.observe(img));
+  }
+
+  startObserving();
+}
+
+observeFadeIn();
+
+</script>
+</html>
