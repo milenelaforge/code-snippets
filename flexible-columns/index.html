@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Flexible Columns</title>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js'></script>
+
+<style type="text/css">
+
+* {
+  padding:0;
+  margin:0;
+}
+
+body{
+  font-family:sans-serif;
+  color:lightyellow;
+}
+
+h2{
+  margin-bottom:2vh;
+}
+
+#container {
+  display: flex;
+  height:100vh;
+}
+
+#left-column {
+  flex: 2;
+  background-color: rosybrown;
+  transition: flex 0.5s;
+  padding:2vh;
+}
+
+#right-column {
+  flex: 2;
+  background-color: lavender;
+  transition: flex 0.5s;
+  padding:2vh;
+}
+
+#close-button {
+  cursor: pointer;
+  text-align: center;
+  background-color: #f44336;
+  color: white;
+  padding: 10px;
+  border: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="container">
+    <div id="left-column">
+        <h2>Colonne de gauche</h2>
+        <button id="close-button">Close</button>
+    </div>
+
+    <div id="right-column">
+        <h2>Colonne de droite</h2>
+    </div>
+</div>
+
+</body>
+
+<script type="text/javascript">
+
+const closeButton = document.getElementById('close-button');
+const leftColumn = document.getElementById('left-column');
+const rightColumn = document.getElementById('right-column');
+let isClosed = false;
+
+closeButton.addEventListener('click', () => {
+    if (!isClosed) {
+        leftColumn.style.flex = '1';
+        rightColumn.style.flex = '5';
+        isClosed = true;
+        closeButton.innerHTML = "Open"
+    } else {
+        leftColumn.style.flex = '2';
+        rightColumn.style.flex = '2';
+        isClosed = false;
+        closeButton.innerHTML = "Close"
+    }
+});
+
+</script>
+
+</html>
