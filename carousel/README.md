@@ -5,4 +5,4 @@ Personalised cursors and texts can be add thanks to links "carousel__prev" and "
 
 # Demos screenshots 
 
-![carousel demo](carousel.png)  
+![carousel demo](carousel.jpg)  
