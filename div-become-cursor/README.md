@@ -7,7 +7,7 @@ index-02.html = example with a text
 
 # Demos screenshots 
 
-![div become cursor demo 1](div-become-cursor-01.png)  
-![div become cursor demo 2](div-become-cursor-02.png)  
-![div become cursor demo 3](div-become-cursor-03.png)  
-![div become cursor demo 4](div-become-cursor-04.png)
+![div become cursor demo 1](div-become-cursor-01.jpg)  
+![div become cursor demo 2](div-become-cursor-02.jpg)  
+![div become cursor demo 3](div-become-cursor-03.jpg)  
+![div become cursor demo 4](div-become-cursor-04.jpg)
